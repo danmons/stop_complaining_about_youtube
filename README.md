@@ -78,22 +78,22 @@ The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 HD 1920x1080 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p,range=limited" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 What the commands do:
