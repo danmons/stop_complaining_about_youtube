@@ -51,7 +51,7 @@ Reading the link above, here's the YouTube-specified critical components for a 1
   * 2160p30 : 35 - 45 Mbps
   * 2160p60 : 53 - 68 Mbps
 * Audio 
-  * Codec: AAC-LC ("Low Complexity)
+  * Codec: AAC-LC ("Low Complexity")
   * Channels: Stereo or Stereo+5.1
   * Sample rate 48KHz or 96KHz
 
@@ -66,7 +66,7 @@ Some extra notes from me outside of YouTube's guide:
 
 If you still don't know what to choose, and want the absolute maximum compatibility, at time of writing (May 2023) I suggest 1920x1080 30FPS as your target resolution and rate. This is by far the most compatible option for the billions of people watching YouTube every day. The other options are fine, but only choose them if you have a strict requirement to (e.g.: don't choose 60FPS because it's cool.  Choose it only if you specificially need it). 
 
-# General ffmpeg commands
+# General FFmpeg commands
 
 I'll eventually fill this repo with a bunch of different scripts to help you do a range of things, such as batch-processing a folder full of videos, automatically choosing outputs based on the probed framerates/resolutions of the input videos, powershell scripts for Windows users and BASH scripts for Linux/Mac users, etc.  But for now, here's what I recommend. 
 
