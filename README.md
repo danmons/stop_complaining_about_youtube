@@ -76,11 +76,13 @@ Firstly, create your video as normal, but constrain yourself to EXACTLY the foll
 
 The command below will enforce these (and several other constraints).  However I recommend the above to save yourself painful and costly re-shoots/re-edits.  The more you can do at capture/edit time, the better these transcodes will look.  Audio is less of an issue because ffmpeg's downmixing and re-sampling isn't too bad.  Likewise ffmpeg and libx264's colour depth, chroma subsampling conversion, bit depth, video range, etc at transcode time do a good job of converting from your high quality video to what YouTube expects.
 
-Despite all my ranting here, you should absolutely create and store videos as high quality as you desire.  Keep your "masters" at high quality on your own private storage for as long as you can, and invistigate high quality codecs like AV1 for long term storage.  Use these scripts to make YouTube compatible versions for output.  You can always re-create lower quality videos from your high quality masters over and over again, should you need to (or want to upload the same video to different providers). But again, the resolutions, aspect ratios and framerates above should be your hard constraints if you want to minimise your YouTube frustrations. 
+Despite all my ranting here, you should absolutely create and store videos as high quality as you desire - if you want to shoot/edit in 10bit or store videos in 4:2:2 or 4:4:4, that's fine.  Keep your "masters" at high quality on your own private storage for as long as you can, and invistigate high quality codecs like AV1 (or if you're into digipres, FFV1) for long term storage.  Use these scripts to make YouTube compatible versions for output.  You can always re-create lower quality videos from your high quality masters over and over again, should you need to (or want to upload the same video to different providers). But again, the resolutions, aspect ratios and framerates above should be your hard constraints if you want to minimise your YouTube frustrations. 
+
+Note that for now I'm sticking to SDR only, and avoiding HDR discussion.  FFmpeg offers a variety of excellent tonemapping and colour conversion options to take you from newer wide colour gamuts or HDR video down to the Rec.709 colour gamut and SDR, but I won't go into them here. Likewise YouTube's native HDR and tonemapping support is improving, but this guide will concentrate on SDR and setting a minimum baseline to help people get videos at a consistent quality, uploaded and available quickly, and watchable by the widest possible audience.  For that reason I suggest you create content in SDR now.
 
 Ensure you download the lastest stable version of FFmpeg, which is what I test these commands with.  FFmpeg (like most open source projects) sees continual improvements, fixes, optimisations, speedups, etc.  Ensure you stick to the latest version so that (a) these commands work, and (b) you get the best quality output, encode speed, feature support, codec support, CPU support, etc.
 
-The basic ffmpeg commands are:
+The basic FFmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
