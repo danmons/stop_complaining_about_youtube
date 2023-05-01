@@ -2,7 +2,7 @@
 
 # Work in progress.  Don't use this guide yet. 
 
-## Preamble
+# Preamble
 
 YoutTube compresses video.  It's what they do.  It makes sense when they push petabytes of data around the planet every month to an audience that is probably 1/10th as sensitive to compression artifacting as you and I, and who are probably playing that video on some cheap and nasty device. 
 
@@ -14,7 +14,7 @@ PLAY BY YOUTUBE'S RULES!
 
 This guide is not a "best way to transcode" guide.  This guide is not a definitive FFmpeg guide. This guide has one purpose: how to beat YouTube's video inspection algorithms and ensure your videos avoid re-transcoding by YouTube so that (a) they're available to view quickly (no hours-long delays at peak time), and (b) they're not re-compressed to horrendous visual quality. 
 
-## YouTube provided guide
+# YouTube provided guide
 
 YouTube/Google have provided documentation.  Read it.  For example, their guides on recommended codecs, containers, colours and bitrates are listed here:
 
@@ -55,7 +55,7 @@ Reading the link above, here's the YouTube-specified critical components for a 1
   * Channels: Stereo or Stereo+5.1
   * Sample rate 48KHz or 96KHz
 
-## Extra notes
+# Extra notes
 
 Some extra notes from me outside of YouTube's guide:
 * Stick with exact 30 or 60 FPS.  I don't care if you want to be all 24 FPS film auteur or 29.97 broadcast expert.  I'm sorry if you live in a PAL territory and want 25 FPS (I live in Australia, so that includes me).  If you want your videos to work cleanly, quickly, and smoothly on YouTube to that audience, stick with 30 and 60.  Firstly the sheer bulk of screens on planet Earth are 60.00FPS.  Secondly the YouTube app on almost any phone/tablet/PC is going to be hard stuck at 60.00FPS, and your 24/29.97 video is just going to be vsynced, time stretched or frame delayed to fit 30.00FPS anyway (at best changing the timing subtly, at worst causing judder for the viewer). 
@@ -66,7 +66,7 @@ Some extra notes from me outside of YouTube's guide:
 
 If you still don't know what to choose, and want the absolute maximum compatibility, at time of writing (May 2023) I suggest 1920x1080 30FPS as your target resolution and rate. This is by far the most compatible option for the billions of people watching YouTube every day. The other options are fine, but only choose them if you have a strict requirement to (e.g.: don't choose 60FPS because it's cool.  Choose it only if you specificially need it). 
 
-## General ffmpeg commands
+# General ffmpeg commands
 
 I'll eventually fill this repo with a bunch of different scripts to help you do a range of things, such as batch-processing a folder full of videos, automatically choosing outputs based on the probed framerates/resolutions of the input videos, powershell scripts for Windows users and BASH scripts for Linux/Mac users, etc.  But for now, here's what I recommend. 
 
