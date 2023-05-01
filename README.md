@@ -132,4 +132,4 @@ What the commands do:
 * -b:a 256k : Set the audio-only bitrate (video adds to the overall size). In this case 256Kbit/s, which with stereo (2 channel) is 128kbit/s per channel
 * -profile:a aac_low : Use the AAC Low Complexity profile
 * -movflags +faststart : Add the "faststart" flag to the MP4 container creation. This will create a normal MP4 container on one pass, and then on a second pass move all of the MP4 metadata from the end of the MP4 (standard) to the beginning. This assists YouTube to begin analysing/processing your video once the first few KB of data are uploaded.  Without this, your entire file needs to be uploaded before YouTube can analyse/process it. 
-* "Outpt video name.mp4" : Output video name, and essentially making the extensions ".mp4" to generate an MP4 container. 
+* "Outpt video name.mp4" : Output video name, and essentially forcing the extension ".mp4" to generate an MP4 container. 
