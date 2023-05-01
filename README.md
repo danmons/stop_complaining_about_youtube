@@ -12,7 +12,7 @@ So, how exactly do we prevent this?
 
 PLAY BY YOUTUBE'S RULES!
 
-This guide is not a "best way to transcode" guide.  This guide is not a definitive ffmpeg guide. This guide has one purpose: how to beat YouTube's video inspection algorithms and ensure your videos avoid re-transcoding by YouTube so that (a) they're available to view quickly (no hours-long delays at peak time), and (b) they're not re-compressed to horrendous visual quality. 
+This guide is not a "best way to transcode" guide.  This guide is not a definitive FFmpeg guide. This guide has one purpose: how to beat YouTube's video inspection algorithms and ensure your videos avoid re-transcoding by YouTube so that (a) they're available to view quickly (no hours-long delays at peak time), and (b) they're not re-compressed to horrendous visual quality. 
 
 ## YouTube provided guide
 
@@ -28,9 +28,9 @@ If you upload video with these guides in mind, two things are likely to happen:
 My additional guidance is as follows:
 
 1) Never, ever exceed the bitrate YouTube specify. That's a fast way to getting your video compressed using their ugly transcode methods.  This WHOLE GUIDE is about using free tools to do exactly this - get a video to the best possible visual quality that's UNDER YouTube's bitrate limit, and stop them applying their own transcoding to ruin your video. 
-2) Learn ffmpeg. Use ffmpeg. Yes it's command line. But you can learn new things.  I'll write scripts and put them in this repo to help.
-3) Don't use hardware/GPU transcoding.  The visual quality is worse and the bitrate is higher.  Hardware/GPU transcoding is EXCELLENT for realtime streaming. You definitely want this for streaming video live to services like YouTube/Twitch/etc.  But the tradeoff is zero configurability around quality.  ffmpeg's software transcoders are far better for final output quality at the cost of being much slower to transcode.  The upside is when you upload a video, you have a decent expectation in advance of what it will look like.
-4) YouTube much prefer MP4 containes, however they have the downside of putting critical metadata at the end of the file by default.  This makes YouTube unable to process them as they upload.  I'll show you some tricks with ffmpeg to put the metadata at the beginning of the file, which allows YouTube the ability to process large files as soon as the first few bytes hit their server, while your video uploads. 
+2) Learn FFmpeg. Use FFmpeg. Love FFmpeg. Yes it's command line, and difficult, and has complex syntax. But humans can learn new things.  I'll write scripts and put them in this repo to help.
+3) Don't use hardware/GPU transcoding.  The visual quality is worse and the bitrate is higher.  Hardware/GPU transcoding is EXCELLENT for realtime streaming. You definitely want this for streaming video live to services like YouTube/Twitch/etc.  But the tradeoff is zero configurability around quality-to-bitrate ratios.  FFmpeg's software transcoders are far better for final output quality at the cost of being much slower to transcode.  The upside is when you upload a video, you have a decent expectation in advance of what it will look like.
+4) YouTube much prefer MP4 containers, however they have the downside of putting critical metadata at the end of the file by default.  This makes YouTube unable to process them as they upload.  I'll show you some tricks with FFmpeg to put the metadata at the beginning of the file, which allows YouTube the ability to process large files as soon as the first few bytes hit their server, while your video uploads. 
 
 Reading the link above, here's the YouTube-specified critical components for a 1080p video. Note that you can upload all sorts of weird stuff to YouTube, but again this buide and repo is about ensuring your best chances for a video that is available quickly and doesn't get re-compressed:
 * Container: MP4. Note that this is not the codec. Learn the difference. 
