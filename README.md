@@ -33,21 +33,21 @@ My additional guidance is as follows:
 Reading the link above, here's the YouTube-specified critical components for a 1080p video. Note that you can upload all sorts of weird stuff to YouTube, but again this buide and repo is about ensuring your best chances for a video that is available quickly and doesn't get re-compressed:
 * Container: MP4. Note that this is not the codec. Learn the difference. 
 * Codec: H.264.  Note that this is not the container. Learn the difference.
-** Progressive scan. Interlaced is dead, get over it. (I love CRTs, but it's the 21st century now. Stop using interlaced video if you're not professional avpres/digipres) 
-** High profile. This is the standard 8 bit colour, 4:2:0 chroma subsampling (more on that later) profile. Other profiles include things like high10 (10bit colour), high422 and high444, etc. Yes, these look way nicer. No, YouTube won't accept them. Deal with it. 
-** Frame rates:  24, 25, 30, 48, 50, 60.  More notes on this below.
-** Consecutive B-frames: 2. "B-Frames" are frames that refer to data in frames before or after the current frame, to do with how lossy codecs like H264 describe differences between frames (saving data by not having to redraw 100% of a frame, just the stuff that's changed). This value can be as high as 16, however YouTube want 2. 
-** Closed GOP at half framerate. "Group Of Pictures", or how far apart keyframes can be. This needs to be hard set (non-variable) and exactly half the frame rate. 
-** CABAC (Context-adaptive binary arithmetic coding). The default encoding for H.264 lossy encoding. Disabling this is only done typically for lossless or very high bitrate H.264, which can look spectacular. A reminder again that this is YouTube. 
-** Variable bitrate (more on bitrate below)
-** Chroma Subsampling 4:2:0.  A common method for the ratio of sampling of luma (light information on a black-and-white scale) versus chroma (colour information). 4:2:0 uses full resolution luma and half resolution chroma.  As the human eye is less sensitive to colour than brightness/lightness, this ends up saving a lot of space for not too much detail loss.  Again, 4:2:2 and of course fully uncompressed 4:4:4 look far better. But once again, this is YouTube, deal with it.
-** SDR (Standard Dynamic Range). YouTube recently added support for HDR and some time later finally offered tone mapping that didn't suck.  However that's outside the scope of this repo for now (might be something I look at later). 
-** Colour space: BT.709. This implies Rec.709 with BT.1886 gamma, and limited range (aka "TV range") output.
+  * Progressive scan. Interlaced is dead, get over it. (I love CRTs, but it's the 21st century now. Stop using interlaced video if you're not professional avpres/digipres) 
+  * High profile. This is the standard 8 bit colour, 4:2:0 chroma subsampling (more on that later) profile. Other profiles include things like high10 (10bit colour), high422 and high444, etc. Yes, these look way nicer. No, YouTube won't accept them. Deal with it. 
+  * Frame rates:  24, 25, 30, 48, 50, 60.  More notes on this below.
+  * Consecutive B-frames: 2. "B-Frames" are frames that refer to data in frames before or after the current frame, to do with how lossy codecs like H264 describe differences between frames (saving data by not having to redraw 100% of a frame, just the stuff that's changed). This value can be as high as 16, however YouTube want 2. 
+  * Closed GOP at half framerate. "Group Of Pictures", or how far apart keyframes can be. This needs to be hard set (non-variable) and exactly half the frame rate. 
+  * CABAC (Context-adaptive binary arithmetic coding). The default encoding for H.264 lossy encoding. Disabling this is only done typically for lossless or very high bitrate H.264, which can look spectacular. A reminder again that this is YouTube. 
+  * Variable bitrate (more on bitrate below)
+  * Chroma Subsampling 4:2:0.  A common method for the ratio of sampling of luma (light information on a black-and-white scale) versus chroma (colour information). 4:2:0 uses full resolution luma and half resolution chroma.  As the human eye is less sensitive to colour than brightness/lightness, this ends up saving a lot of space for not too much detail loss.  Again, 4:2:2 and of course fully uncompressed 4:4:4 look far better. But once again, this is YouTube, deal with it.
+  * SDR (Standard Dynamic Range). YouTube recently added support for HDR and some time later finally offered tone mapping that didn't suck.  However that's outside the scope of this repo for now (might be something I look at later). 
+  * Colour space: BT.709. This implies Rec.709 with BT.1886 gamma, and limited range (aka "TV range") output.
 * Bitrates.  YouTube have a few guides, but I'm going to insist you stick to two specific resolutions (more below).  For those, the bitrate ranges/caps suggested are:
-** 1080p30 - 8 Mbps
-** 1080p60 - 12 Mbps
-** 2160p30 - 35 - 45 Mbps
-** 2160p60 - 53 - 68 Mbps
+  * 1080p30 - 8 Mbps
+  * 1080p60 - 12 Mbps
+  * 2160p30 - 35 - 45 Mbps
+  * 2160p60 - 53 - 68 Mbps
 * Audio codec: AAC-LC, Stereo or Stereo+5.1, Sample rate 96KHz or 48KHz
 
 ## Extra notes
@@ -76,22 +76,22 @@ The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 HD 1920x1080 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p,range=limited" -r 60 -c:v libx264 -b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p,range=limited" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 What the commands do:
@@ -107,6 +107,7 @@ What the commands do:
 ** range=limited : Set limited range (aka TV video standard)
 * -r 30 : Hard set 30FPS (or 60FPS) frame rate.  Won't change the duration of the video, but will convert frame rates if they don't match exactly already. Again, here to ensure you followed the instructions. 
 * -c:v libx264 : Use the libx264 software H.264 video codec encoder
+* -coder ac : use CABAC (Context-adaptive binary arithmetic coding)
 * -b:v 5M : Set the video-only bitrate (audio adds to the overall size). "5M" is 5 Mbps (i.e.: 5000 Kbit/s) in this case. Rate isn't perfectly exact at every moment, as it can vary depending on what's happening frame by frame.  This is averaged over time.  Rates are a fair bit under the YouTube upper limits, chosen on purpose. 
 * -flags +cgop : Set consistent GOP (Group Of Frames)
 * -g 15 : Set the GOP size to 15 (half the frame rate. -g 30 when framerate is 60)
