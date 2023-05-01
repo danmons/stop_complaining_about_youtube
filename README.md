@@ -140,3 +140,16 @@ What the commands do:
 * -profile:a aac_low : Use the AAC Low Complexity profile
 * -movflags +faststart : Add the "faststart" flag to the MP4 container creation. This will create a normal MP4 container on one pass, and then on a second pass move all of the MP4 metadata from the end of the MP4 (standard) to the beginning. This assists YouTube to begin analysing/processing your video once the first few KB of data are uploaded.  Without this, your entire file needs to be uploaded before YouTube can analyse/process it. 
 * "Outpt video name.mp4" : Output video name, and essentially forcing the extension ".mp4" to generate an MP4 container. 
+
+# Glossary
+
+* Rec.709 / BT.709 - Definition of colour standards for standard definition HD television
+  * https://en.wikipedia.org/wiki/Rec._709
+* sRGB - Definition of colour standards for standard definition PC monitors
+  * https://en.wikipedia.org/wiki/SRGB
+* Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a logarithmic curve (sometimes called "gamma curve")
+  * https://en.wikipedia.org/wiki/Gamma_correction
+* EOTF - Electro-optical transfer function - mapping of a video signal to a display device, usually with some sort of gamma curve or formula to correct the luminance
+  * https://en.wikipedia.org/wiki/Transfer_functions_in_imaging
+* BT.1886 - the specific EOTF / "gamma" used for SDR Television, designed to mimic the natural characteristics of CRT displays. Aligns approximately to the linear value to the power of (1/2.4), or "gamma 2.4".  Most commonly used with standard dynamic range BT.709 HD-TV and BT.2020 UHD-TV standards. 
+  * https://en.wikipedia.org/wiki/ITU-R_BT.1886
