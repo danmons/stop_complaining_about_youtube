@@ -156,7 +156,7 @@ There's no need to understand any of this. However these terms come up often in 
   * https://en.wikipedia.org/wiki/Standard-dynamic-range_video
 * HDR, High Dynamic Range - new definitions for larger dynamic ranges of brightness, contrast and colour. Various standards exist. Some can offer well below the 0.1cd/m^2 (nits) black level of SDR. The upper bounds range from 400 to a theoretical 10,0000 cd/m^2 (nits) depending on the standard, although in practice 4,000 is the current upper bounds for mastering (with few displays on the market even able to physically achieve over 1,500 at time of writing).
   * https://en.wikipedia.org/wiki/High-dynamic-range_television
-* sRGB - Definition of colour standards for SDR PC monitors. (Not to be confused with the "RGB" colour model).
+* sRGB - Definition of colour, brightness, contrast and gamma standards for SDR PC monitors. (Not to be confused with the "RGB" colour model).
   * https://en.wikipedia.org/wiki/SRGB
 * Rec.709 / BT.709 - Definition of colour standards for SDR HD television
   * https://en.wikipedia.org/wiki/Rec._709
