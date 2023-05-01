@@ -36,7 +36,7 @@ Reading the link above, here's the YouTube-specified critical components for a 1
 * Container: MP4. Note that this is not the codec. Learn the difference. 
 * Codec: H.264.  Note that this is not the container. Learn the difference.
   * Progressive scan. Interlaced is dead, get over it. (I love CRTs, but it's the 21st century now. Stop using interlaced video if you're not professional avpres/digipres) 
-  * High profile. This is the standard 8 bit colour, 4:2:0 chroma subsampling (more on that later) profile. Other profiles include things like high10 (10bit colour), high422 and high444, etc. Yes, these look way nicer. No, YouTube won't accept them. Deal with it. 
+  * High profile. This is the standard 8 bit colour, 4:2:0 chroma subsampling (more on that later) profile, as well as setting the limit on what H.264 features the decoder needs to know about. Other profiles include things like high10 (10bit colour), high422 and high444, etc. Yes, these look way nicer. No, YouTube won't accept them. Deal with it. 
   * Frame rates:  24, 25, 30, 48, 50, 60.  More notes on this below.
   * Consecutive B-frames: 2. "B-Frames" are frames that refer to data in frames before or after the current frame, to do with how lossy codecs like H264 describe differences between frames (saving data by not having to redraw 100% of a frame, just the stuff that's changed). This value can be as high as 16, however YouTube want 2. 
   * Closed GOP at half framerate. "Group Of Pictures", or how far apart keyframes can be. This needs to be hard set (non-variable) and exactly half the frame rate. 
