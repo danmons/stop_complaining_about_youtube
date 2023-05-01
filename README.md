@@ -145,7 +145,7 @@ What the commands do:
 
 * Rec.709 / BT.709 - Definition of colour standards for standard definition HD television
   * https://en.wikipedia.org/wiki/Rec._709
-* sRGB - Definition of colour standards for standard definition PC monitors
+* sRGB - Definition of colour standards for standard definition PC monitors. (Not to be confused with the "RGB" colour model).
   * https://en.wikipedia.org/wiki/SRGB
 * Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a non-linear/logarithmic curve (sometimes called "gamma curve")
   * https://en.wikipedia.org/wiki/Gamma_correction
