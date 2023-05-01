@@ -50,7 +50,10 @@ Reading the link above, here's the YouTube-specified critical components for a 1
   * 1080p60 : 12 Mbps
   * 2160p30 : 35 - 45 Mbps
   * 2160p60 : 53 - 68 Mbps
-* Audio codec: AAC-LC, Stereo or Stereo+5.1, Sample rate 96KHz or 48KHz
+* Audio 
+  * Codec: AAC-LC ("Low Complexity)
+  * Channels: Stereo or Stereo+5.1
+  * Sample rate 48KHz or 96KHz
 
 ## Extra notes
 
@@ -78,22 +81,22 @@ The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 HD 1920x1080 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 What the commands do:
@@ -121,7 +124,9 @@ What the commands do:
 * -bf 2 : 2 consecutive b-frames
 * -preset slow : Encode slightly slower than the standard.  This produces slightly better quality video for the same bitrate at the expense of CPU time.
 * -c:a aac : Use the AAC audio codec
+* -ar 48000 : Set the audio sampling rate to 48000 Hz (48KHz)
 * -ac 2 : Set 2 audio channels (up/downmixing if necessary)
 * -b:a 256k : Set the audio-only bitrate (video adds to the overall size). In this case 256Kbit/s, which with stereo (2 channel) is 128kbit/s per channel
+* -profile:a aac_low : Use the AAC Low Complexity profile
 * -movflags +faststart : Add the "faststart" flag to the MP4 container creation. This will create a normal MP4 container on one pass, and then on a second pass move all of the MP4 metadata from the end of the MP4 (standard) to the beginning. This assists YouTube to begin analysing/processing your video once the first few KB of data are uploaded.  Without this, your entire file needs to be uploaded before YouTube can analyse/process it. 
 * "Outpt video name.mp4" : Output video name, and essentially making the extensions ".mp4" to generate an MP4 container. 
