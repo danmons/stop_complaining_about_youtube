@@ -71,7 +71,7 @@ I'll eventually fill this repo with a bunch of different scripts to help you do 
 Firstly, create your video as normal, but constrain yourself to EXACTLY the following (re-read the above if you don't understand why):
 * 30.00 or 60.00 FPS. 
 * 1920x1080 (HD) or 3840x2160 (UHD) pixels
-* 16:9 display aspect ratio (yes, this can be different to your pixel aspect ratio.  Ensure it's not)
+* 16:9 "DAR" display aspect ratio (yes, this can be different even if your PAR/SAR suggests everything is OK, if you've somehow made it an anamorphic picture.  Ensure it's not)
 
 The command below will enforce these (and several other constraints).  However I recommend the above to save yourself painful and costly re-shoots/re-edits.  The more you can do at capture/edit time, the better these transcodes will look.  Audio is less of an issue because ffmpeg's downmixing and re-sampling isn't too bad.  Likewise ffmpeg and libx264's colour depth, chroma subsampling conversion, bit depth, video range, etc at transcode time do a good job of converting from your high quality video to what YouTube expects.
 
@@ -115,7 +115,7 @@ What the commands do:
   * setdar=dar=16/9 : Set/scale the DAR (Display Aspect Ratio) metadata to 16:9. 
   * format=yuv420p : Set/scale the pixel format to yuv420p. YUV colour space, 4:2:0 chroma subsampling, 8 bit per pixel colour.
   * range=limited : Set limited range (aka TV video standard)
-* -r 30 : Hard set 30FPS (or 60FPS) frame rate.  Won't change the duration of the video, but will convert frame rates if they don't match exactly already. Again, here to ensure you followed the instructions. 
+* -r 30 : Hard set 30FPS (or 60FPS) frame rate.  Won't change the duration of the video, but will convert frame rates if they don't match exactly already. Again, here to ensure you followed the instructions. If your resulting video seems choppy or juddery, double-check the framerate of your original video.  
 * -c:v libx264 : Use the libx264 software H.264 video codec encoder
 * -coder ac : use CABAC (Context-adaptive binary arithmetic coding)
 * -b:v 5M : Set the video-only bitrate (audio adds to the overall size). "5M" is 5 Mbps (i.e.: 5000 Kbit/s) in this case. Rate isn't perfectly exact at every moment, as it can vary depending on what's happening frame by frame.  This is averaged over time.  Rates are a fair bit under the YouTube upper limits, chosen on purpose. 
