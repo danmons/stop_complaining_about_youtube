@@ -1,4 +1,4 @@
-# Stop Complaining About Youtube
+# Stop Complaining About YouTube
 
 # Work in progress.  Don't use this guide yet. 
 
