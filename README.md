@@ -44,7 +44,7 @@ Reading the link above, here's the YouTube-specified critical components for a 1
   * Variable bitrate (more on bitrate below)
   * Chroma Subsampling 4:2:0.  A common method for the ratio of sampling of luma (light information on a black-and-white scale) versus chroma (colour information). 4:2:0 uses full resolution luma and half resolution chroma.  As the human eye is less sensitive to colour than brightness/lightness, this ends up saving a lot of space for not too much detail loss.  Again, 4:2:2 and of course fully uncompressed 4:4:4 look far better. But once again, this is YouTube, deal with it.
   * SDR (Standard Dynamic Range). YouTube recently added support for HDR and some time later finally offered tone mapping that didn't suck.  However that's outside the scope of this repo for now (might be something I look at later). 
-  * Colour space: BT.709. This implies Rec.709 with BT.1886 gamma, and limited range (aka "TV range") output.
+  * Colour space: BT.709. This implies Rec.709 with BT.1886 EOTF ("gamma"), and limited range (aka "TV range") output.
 * Bitrates.  YouTube have a few guides, but I'm going to insist you stick to two specific resolutions (more below).  For those, the bitrate ranges/caps suggested are:
   * 1080p30 - 8 Mbps
   * 1080p60 - 12 Mbps
