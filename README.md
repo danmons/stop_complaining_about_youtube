@@ -16,7 +16,7 @@ This guide is not a "best way to transcode" guide.  This guide is not a definiti
 
 ## YouTube provided guide
 
-YouTube/Google have provided documentation.  Read it.  For example, their guides on recommended bitrates are listed here:
+YouTube/Google have provided documentation.  Read it.  For example, their guides on recommended codecs, containers, colours and bitrates are listed here:
 
 https://support.google.com/youtube/answer/1722171
 
