@@ -125,7 +125,7 @@ What the commands do:
 * -flags +cgop : Set consistent GOP (Group Of Frames)
 * -g 15 : Set the GOP size to 15 (half the frame rate. -g 30 when framerate is 60)
 * -bf 2 : 2 consecutive b-frames
-* -preset slow : Encode slightly slower than the standard.  This produces slightly better quality video for the same bitrate at the expense of CPU time.
+* -preset slow : Encode slightly slower than the standard preset of "medium".  This produces slightly better quality video for the same bitrate at the expense of CPU time. There are even slower profiles ("slower", "veryslow"), although these deliver diminishing returns. Documentation suggests that the "slow" preset costs 40% more CPU time for decent bitrate/quality improvement.  
 * -c:a aac : Use the AAC audio codec
 * -ar 48000 : Set the audio sampling rate to 48000 Hz (48KHz)
 * -ac 2 : Set 2 audio channels (up/downmixing if necessary)
