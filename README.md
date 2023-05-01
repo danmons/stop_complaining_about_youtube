@@ -107,10 +107,10 @@ What the commands do:
 * -vf : ffmpeg's complex filter format. Breaking down the sub-commands:
   * scale=1920:1080 : Use ffmpeg's excellent quality software video scaler to scale the video to exact pixels. No action taken if your video is already this scale. This is here as a "just in case you didn't follow the advice" thing.
   * zscale : use libzimg to set/scale colour values. Values are changed only if not already in the required format.
-  * transfer=bt709 : Set/scale the EOTF (electro-optical transfer function, sometimes called "gamma") to BT.709/BT.1886
-  * matrix=bt709 : Set/scale the colour matrix to BT.709
-  * primaries=bt709 : Set/scale the RGB primaries to BT.709
-  * range=tv : Set/scale the colour range (aka "RGB range") to TV specs (aka "RGB Limited Range")
+  * transfer=709 : Set/scale the EOTF (electro-optical transfer function, sometimes called "gamma") to BT.709/BT.1886
+  * matrix=709 : Set/scale the colour matrix to BT.709
+  * primaries=709 : Set/scale the RGB primaries to BT.709
+  * range=limited : Set/scale the colour range (aka "RGB range") to TV specs (aka "RGB Limited Range")
   * setsar=sar=1/1 : Set/scale the SAR (Sample Aspect Ratio, i.e.: pixel aspect ratio) metadata. 1:1 is square pixels, or non-anamorphic.
   * setdar=dar=16/9 : Set/scale the DAR (Display Aspect Ratio) metadata to 16:9. 
   * format=yuv420p : Set/scale the pixel format to yuv420p. YUV colour space, 4:2:0 chroma subsampling, 8 bit per pixel colour.
