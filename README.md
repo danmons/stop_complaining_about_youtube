@@ -46,10 +46,10 @@ Reading the link above, here's the YouTube-specified critical components for a 1
   * SDR (Standard Dynamic Range). YouTube recently added support for HDR and some time later finally offered tone mapping that didn't suck.  However that's outside the scope of this repo for now (might be something I look at later). 
   * Colour space: BT.709. This implies Rec.709 with BT.1886 EOTF ("gamma"), and limited range (aka "TV range") output.
 * Bitrates.  YouTube have a few guides, but I'm going to insist you stick to two specific resolutions (more below).  For those, the bitrate ranges/caps suggested are:
-  * 1080p30 - 8 Mbps
-  * 1080p60 - 12 Mbps
-  * 2160p30 - 35 - 45 Mbps
-  * 2160p60 - 53 - 68 Mbps
+  * 1080p30 : 8 Mbps
+  * 1080p60 : 12 Mbps
+  * 2160p30 : 35 - 45 Mbps
+  * 2160p60 : 53 - 68 Mbps
 * Audio codec: AAC-LC, Stereo or Stereo+5.1, Sample rate 96KHz or 48KHz
 
 ## Extra notes
