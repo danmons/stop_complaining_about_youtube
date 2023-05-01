@@ -6,7 +6,7 @@
 
 YoutTube compresses video.  It's what they do.  It makes sense when they push petabytes of data around the planet every month to an audience that is probably 1/10th as sensitive to compression artifacting as you and I, and who are probably playing that video on some cheap and nasty device. 
 
-If you upload eye-wateringly huge videos to YouTube, they WILL be compressed before people can see them. Compression takes a LONG time and YouTube's settings destroy your content quality.  Everyone knows this. Let's stop complaining about it and do what we can to prevent it.  
+If you upload eye-wateringly huge videos to YouTube, they WILL be compressed before people can see them. If you upload videos in the latest hotness in codecs, they WILL be converted to older codecs that are supported by more devices. Compression/conversion takes a LONG time and YouTube's internal default settings destroy your content quality.  Everyone knows this. Let's stop complaining about it and do what we can to prevent it.  
 
 So, how exactly do we prevent this?
 
