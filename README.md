@@ -77,6 +77,8 @@ The command below will enforce these (and several other constraints).  However I
 
 Despite all my ranting here, you should absolutely create and store videos as high quality as you desire.  Keep your "masters" at high quality on your own private storage for as long as you can, and invistigate high quality codecs like AV1 for long term storage.  Use these scripts to make YouTube compatible versions for output.  You can always re-create lower quality videos from your high quality masters over and over again, should you need to (or want to upload the same video to different providers). But again, the resolutions, aspect ratios and framerates above should be your hard constraints if you want to minimise your YouTube frustrations. 
 
+Ensure you download the lastest stable version of FFmpeg, which is what I test these commands with.  FFmpeg (like most open source projects) sees continual improvements, fixes, optimisations, speedups, etc.  Ensure you stick to the latest version so that (a) these commands work, and (b) you get the best quality output, encode speed, feature support, codec support, CPU support, etc.
+
 The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
