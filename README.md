@@ -147,7 +147,7 @@ What the commands do:
   * https://en.wikipedia.org/wiki/Rec._709
 * sRGB - Definition of colour standards for standard definition PC monitors
   * https://en.wikipedia.org/wiki/SRGB
-* Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a logarithmic curve (sometimes called "gamma curve")
+* Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a non-linear/logarithmic curve (sometimes called "gamma curve")
   * https://en.wikipedia.org/wiki/Gamma_correction
 * EOTF - Electro-optical transfer function - mapping of a video signal to a display device, usually with some sort of gamma curve or formula to correct the luminance
   * https://en.wikipedia.org/wiki/Transfer_functions_in_imaging
