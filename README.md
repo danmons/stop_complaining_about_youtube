@@ -143,10 +143,16 @@ What the commands do:
 
 # Glossary
 
-* Rec.709 / BT.709 - Definition of colour standards for standard definition HD television
-  * https://en.wikipedia.org/wiki/Rec._709
-* sRGB - Definition of colour standards for standard definition PC monitors. (Not to be confused with the "RGB" colour model).
+* SDR , Standard Dynamic Range - Defined dynamic range of brightness, contrast and colour, designed to mimic a CRT television. Produces luminance levels of approximately 0.1cd/m^2 (nits) to 100cd/m^2 (nits).
+  * https://en.wikipedia.org/wiki/Standard-dynamic-range_video
+* HDR, High Dynamic Range - new definitions for larger dynamic ranges of brightness, contrast and colour. Various standards exist. Some can offer well below the 0.1cd/m^2 (nits) black level of SDR. The upper bounds range from 400 to a theoretical 10,0000 cd/m^2 (nits) depending on the standard, although in practice 4,000 is the current upper bounds for mastering (with few displays on the market even able to physically achieve over 1,500 at time of writing).
+  * https://en.wikipedia.org/wiki/High-dynamic-range_television
+* sRGB - Definition of colour standards for SDR PC monitors. (Not to be confused with the "RGB" colour model).
   * https://en.wikipedia.org/wiki/SRGB
+* Rec.709 / BT.709 - Definition of colour standards for SDR HD television
+  * https://en.wikipedia.org/wiki/Rec._709
+* Rec.2020 / BT.2020 - Definition of colour standards for SDR UHD television, including a wider colour gamut than BT.709. Despite common misconception, HDR is specified by the newer Rec.2100/BT.2100, although both BT.2020 and BT.2100 share many other characteristics. During the transitional phase from SDR to HDR, it's not uncommon for BT.2020 media to also optionally include HDR.
+  * https://en.wikipedia.org/wiki/Rec._2020
 * Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a non-linear/logarithmic curve or power law (sometimes called a "gamma curve")
   * https://en.wikipedia.org/wiki/Gamma_correction
 * EOTF - Electro-optical transfer function - mapping of a video signal to a display device, usually with some sort of gamma curve or formula to correct the luminance
