@@ -4,9 +4,11 @@
 
 ## Preamble
 
-YoutTube compresses video.  It's what they do.  It makes sense when they push petabytes of data around the planet every month to an audience that is probably 1/10th as sensitive to compression artefacting as you and I.
+YoutTube compresses video.  It's what they do.  It makes sense when they push petabytes of data around the planet every month to an audience that is probably 1/10th as sensitive to compression artifacting as you and I.
 
-If you upload eye-wateringly huge videos to YouTube, they will be compressed before people can see them. Compression takes a LONG time and YouTube's settings destroy your content quality.  How do you prevent this?
+If you upload eye-wateringly huge videos to YouTube, they WILL be compressed before people can see them. Compression takes a LONG time and YouTube's settings destroy your content quality.  Everyone knows this. Let's stop complaining about it and do what we can to prevent it.  
+
+So, how exactly do we prevent this?
 
 PLAY BY YOUTUBE'S RULES!
 
