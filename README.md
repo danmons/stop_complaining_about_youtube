@@ -158,9 +158,9 @@ There's no need to understand any of this. However these terms come up often in 
   * https://en.wikipedia.org/wiki/High-dynamic-range_television
 * sRGB - Definition of colour, brightness, contrast and gamma standards for SDR PC monitors. (Not to be confused with the "RGB" colour model).
   * https://en.wikipedia.org/wiki/SRGB
-* Rec.709 / BT.709 - Definition of colour standards for SDR HD television
+* Rec.709 / BT.709 - Definition of colour standards for SDR HD television. While BT.709 strictly limits itself to 1920x1080 HD resolution, and the newer BT.2020 defines 3840x2160 UHD resolutions, the increased colour gamut of BT.2020 means that many 3840x2160 UHD videos are still in BT.709 format during the transitional phase from HD to UHD.
   * https://en.wikipedia.org/wiki/Rec._709
-* Rec.2020 / BT.2020 - Definition of colour standards for SDR UHD television, including a wider colour gamut than BT.709. Despite common misconception, HDR is specified by the newer Rec.2100/BT.2100, although both BT.2020 and BT.2100 share many other characteristics. During the transitional phase from SDR to HDR, it's not uncommon for BT.2020 media to also optionally include HDR.
+* Rec.2020 / BT.2020 - Definition of colour standards for SDR UHD television, including a wider colour gamut than BT.709. HDR is specified by the newer Rec.2100/BT.2100, although both BT.2020 and BT.2100 share many other characteristics. During the transitional phase from SDR to HDR, it's not uncommon for BT.2020 media to also optionally include HDR.
   * https://en.wikipedia.org/wiki/Rec._2020
 * Gamma correction, or gamma - accurately representing the luminance (brightness) of an image on a grey scale, usually on a non-linear/logarithmic curve or power law (sometimes called a "gamma curve")
   * https://en.wikipedia.org/wiki/Gamma_correction
