@@ -70,8 +70,9 @@ I'll eventually fill this repo with a bunch of different scripts to help you do 
 
 Firstly, create your video as normal, but constrain yourself to EXACTLY the following (re-read the above if you don't understand why):
 * 30.00 or 60.00 FPS. 
-* 1920x1080 (HD) or 3840x2160 (UHD) pixels
+* 1920x1080 (HD aka HD1080) or 3840x2160 (UHD aka UHD2160) pixels. I specifically avoid the term "4K" because it's a family of resolutions that can be different to what I've specified here. 
 * 16:9 "DAR" display aspect ratio (yes, this can be different even if your PAR/SAR suggests everything is OK, if you've somehow made it an anamorphic picture.  Ensure it's not)
+* Progressive scan. (i.e.: not interlaced)
 
 The command below will enforce these (and several other constraints).  However I recommend the above to save yourself painful and costly re-shoots/re-edits.  The more you can do at capture/edit time, the better these transcodes will look.  Audio is less of an issue because ffmpeg's downmixing and re-sampling isn't too bad.  Likewise ffmpeg and libx264's colour depth, chroma subsampling conversion, bit depth, video range, etc at transcode time do a good job of converting from your high quality video to what YouTube expects.
 
