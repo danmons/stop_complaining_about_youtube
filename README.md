@@ -78,22 +78,22 @@ The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 HD 1920x1080 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p,range=limited" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=bt709:matrix=bt709:primaries=bt709:range=tv,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p,range=limited" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ac 2 -b:a 256K -movflags +faststart "Outpt video name.mp4"
 ```
 
 What the commands do:
@@ -102,11 +102,16 @@ What the commands do:
 * -n : Never overwrite an existing video.  Fails immediately if a filename exists that could be overwritten. 
 * -i "Your Video Name.ext" : the input video filename and extension.  Can be anything ffmpeg supports (which is almost anything you can imagine).
 * -vf : ffmpeg's complex filter format. Breaking down the sub-commands:
-** scale=1920:1080 : Use ffmpeg's excellent quality software video scaler to scale the video to exact pixels. No action taken if your video is already this scale. This is here as a "just in case you didn't follow the advice" thing. 
-** setsar=sar=1/1 : Set the SAR (Sample Aspect Ratio, i.e.: pixel aspect ratio) metadata. 1:1 is square pixels, or non-anamorphic.
-** setdar=dar=16/9 : Set the DAR (Display Aspect Ratio) metadata to 16:9. 
-** format=yuv420p : Set the pixel format to yuv420p. YUV colour space, 4:2:0 chroma subsampling, 8 bit per pixel colour.
-** range=limited : Set limited range (aka TV video standard)
+  * scale=1920:1080 : Use ffmpeg's excellent quality software video scaler to scale the video to exact pixels. No action taken if your video is already this scale. This is here as a "just in case you didn't follow the advice" thing.
+  * zscale : use libzimg to set/scale colour values. Values are changed only if not already in the required format.
+  * transfer=bt709 : Set/scale the EOTF (electro-optical transfer function, sometimes called "gamma") to BT.709/BT.1886
+  * matrix=bt709 : Set/scale the colour matrix to BT.709
+  * primaries=bt709 : Set/scale the RGB primaries to BT.709
+  * range=tv : Set/scale the colour range (aka "RGB range") to TV specs (aka "RGB Limited Range")
+  * setsar=sar=1/1 : Set/scale the SAR (Sample Aspect Ratio, i.e.: pixel aspect ratio) metadata. 1:1 is square pixels, or non-anamorphic.
+  * setdar=dar=16/9 : Set/scale the DAR (Display Aspect Ratio) metadata to 16:9. 
+  * format=yuv420p : Set/scale the pixel format to yuv420p. YUV colour space, 4:2:0 chroma subsampling, 8 bit per pixel colour.
+  * range=limited : Set limited range (aka TV video standard)
 * -r 30 : Hard set 30FPS (or 60FPS) frame rate.  Won't change the duration of the video, but will convert frame rates if they don't match exactly already. Again, here to ensure you followed the instructions. 
 * -c:v libx264 : Use the libx264 software H.264 video codec encoder
 * -coder ac : use CABAC (Context-adaptive binary arithmetic coding)
