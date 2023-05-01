@@ -81,22 +81,22 @@ The basic ffmpeg commands are:
 
 HD 1920x1080 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -profile:v high -coder ac -b:v 5M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 HD 1920x1080 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=1920:1080,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -profile:v high -coder ac b:v 10M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 30FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 30 -c:v libx264 -profile:v high -coder ac b:v 20M -flags +cgop -g 15 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 UHD 3840x2160 60FPS video:
 ```
-ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
+ffmpeg -nostdin -hide_banner -n -i "Your Video Name.ext" -vf "scale=3840:2160,zscale=transfer=709:matrix=709:primaries=709:range=limited,setsar=sar=1/1,setdar=dar=16/9,format=yuv420p" -r 60 -c:v libx264 -profile:v high -coder ac b:v 30M -flags +cgop -g 30 -bf 2 -preset slow -c:a aac -ar 48000 -ac 2 -b:a 256K -profile:a aac_low -movflags +faststart "Outpt video name.mp4"
 ```
 
 What the commands do:
@@ -117,6 +117,7 @@ What the commands do:
   * range=limited : Set limited range (aka TV video standard)
 * -r 30 : Hard set 30FPS (or 60FPS) frame rate.  Won't change the duration of the video, but will convert frame rates if they don't match exactly already. Again, here to ensure you followed the instructions. If your resulting video seems choppy or juddery, double-check the framerate of your original video.  
 * -c:v libx264 : Use the libx264 software H.264 video codec encoder
+* -profile:v high : Use libx264/H.264 "high" profile 
 * -coder ac : use CABAC (Context-adaptive binary arithmetic coding)
 * -b:v 5M : Set the video-only bitrate (audio adds to the overall size). "5M" is 5 Mbps (i.e.: 5000 Kbit/s) in this case. Rate isn't perfectly exact at every moment, as it can vary depending on what's happening frame by frame.  This is averaged over time.  Rates are a fair bit under the YouTube upper limits, chosen on purpose. 
 * -flags +cgop : Set consistent GOP (Group Of Frames)
