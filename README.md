@@ -1,3 +1,4 @@
+<details>
 # Stop Complaining About YouTube
 
 # Work in progress.  Don't use this guide yet. 
@@ -168,3 +169,4 @@ There's no need to understand any of this. However these terms come up often in 
   * https://en.wikipedia.org/wiki/Transfer_functions_in_imaging
 * BT.1886 - the specific EOTF / "gamma" used for SDR Television, designed to mimic the natural characteristics of CRT displays. Aligns approximately to the linear value to the power of (1/2.4), or "gamma 2.4".  Most commonly used with standard dynamic range BT.709 HD-TV and BT.2020 UHD-TV standards. 
   * https://en.wikipedia.org/wiki/ITU-R_BT.1886
+</details>
